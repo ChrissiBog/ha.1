@@ -90,5 +90,18 @@ class CalculatorTest {
 
 
     //TODO hier weitere Tests erstellen
+    
+    // Teilaufgabe 1 – Grüner Test
+    @Test
+    @DisplayName("should display a number with a single decimal dot correctly")
+    void shouldAddDecimalDotCorrectly() {
+        Calculator calculator = new Calculator();
+
+        calculator.pressDigitKey(1);
+        calculator.pressDotKey();
+        calculator.pressDigitKey(5);
+
+        assertEquals("1.5", calculator.readScreen());
+    }
 }
 
