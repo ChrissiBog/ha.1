@@ -125,5 +125,25 @@ class CalculatorTest {
         // Erwartet: 5 + 2 = 7
         assertEquals("7", calculator.readScreen());
     }
+
+    // Teilaufgabe 2 - Roter Test 2
+    @Test
+    @DisplayName("should correctly toggle negative sign before and after operations")
+    void shouldToggleNegativeSignCorrectly() {
+        Calculator calculator = new Calculator();
+
+        // Erste Zahl eingeben und negativ machen
+        calculator.pressDigitKey(5);
+        calculator.pressNegativeKey();
+        assertEquals("-5", calculator.readScreen());
+
+        // Addition vorbereiten
+        calculator.pressBinaryOperationKey("+");
+        calculator.pressDigitKey(3);
+        calculator.pressEqualsKey();
+
+        // Erwartetes Ergebnis: -5 + 3 = -2
+        assertEquals("-2", calculator.readScreen());
+    }
 }
 
