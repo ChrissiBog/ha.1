@@ -51,14 +51,14 @@ public class Calculator {
         latestValue = 0.0;
     }*/
 
-    // fixed pressClearKey Methode
+    // fixed pressClearKey Methode (Teilaufgabe 2 roter Test 1 fixed)
     public void pressClearKey() {
     if (screen.equals("0")) {
-        // Zweites Drücken → alles zurücksetzen
+        // Zweites Drücken -> alles zurücksetzen
         latestOperation = "";
         latestValue = 0.0;
     }
-    // Erstes Drücken → nur Bildschirm zurücksetzen
+    // Erstes Drücken -> nur Bildschirm zurücksetzen 
     screen = "0";
     }
 
