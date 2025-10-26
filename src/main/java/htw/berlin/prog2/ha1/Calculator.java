@@ -44,10 +44,22 @@ public class Calculator {
      * Werte sowie der aktuelle Operationsmodus zurückgesetzt, so dass der Rechner wieder
      * im Ursprungszustand ist.
      */
-    public void pressClearKey() {
+    
+     /**public void pressClearKey() {
         screen = "0";
         latestOperation = "";
         latestValue = 0.0;
+    }*/
+
+    // fixed pressClearKey Methode
+    public void pressClearKey() {
+    if (screen.equals("0")) {
+        // Zweites Drücken → alles zurücksetzen
+        latestOperation = "";
+        latestValue = 0.0;
+    }
+    // Erstes Drücken → nur Bildschirm zurücksetzen
+    screen = "0";
     }
 
     /**
