@@ -104,23 +104,24 @@ class CalculatorTest {
         assertEquals("1.5", calculator.readScreen());
     }
 
+    // Teilaufgabe 2 - Roter Test 1
     @Test
     @DisplayName("should only clear screen on first press, not memory values")
     void shouldOnlyClearScreenOnFirstPressNotMemory() {
         Calculator calculator = new Calculator();
-    
+
         // 5 + 3 vorbereiten
         calculator.pressDigitKey(5);
         calculator.pressBinaryOperationKey("+");
         calculator.pressDigitKey(3);
-    
+
         // Clear einmal drücken → sollte nur Screen löschen, nicht latestValue
         calculator.pressClearKey();
-    
+
         // Neue Zahl eingeben und Ergebnis berechnen
         calculator.pressDigitKey(2);
         calculator.pressEqualsKey();
-    
+
         // Erwartet: 5 + 2 = 7
         assertEquals("7", calculator.readScreen());
     }
