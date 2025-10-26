@@ -126,24 +126,22 @@ class CalculatorTest {
         assertEquals("7", calculator.readScreen());
     }
 
-    // Teilaufgabe 2 - Roter Test 2
+    // Teilaufgabe 2 - Roter Test 2: 1/x bei 0
     @Test
-    @DisplayName("should correctly toggle negative sign before and after operations")
-    void shouldToggleNegativeSignCorrectly() {
+    @DisplayName("should display Error when inverting zero")
+    void shouldDisplayErrorWhenInvertingZero() {
         Calculator calculator = new Calculator();
 
-        // Erste Zahl eingeben und negativ machen
-        calculator.pressDigitKey(5);
-        calculator.pressNegativeKey();
-        assertEquals("-5", calculator.readScreen());
+        // 0 eingeben
+        calculator.pressDigitKey(0);
 
-        // Addition vorbereiten
-        calculator.pressBinaryOperationKey("+");
-        calculator.pressDigitKey(3);
-        calculator.pressEqualsKey();
+        // Inversion 1/x drücken → aktuell Bug: zeigt "Infinity" statt "Error"
+        calculator.pressUnaryOperationKey("1/x");
 
-        // Erwartetes Ergebnis: -5 + 3 = -2
-        assertEquals("-2", calculator.readScreen());
+        // Erwartetes Ergebnis: "Error"
+        assertEquals("Error", calculator.readScreen());
     }
+    
+    
 }
 
